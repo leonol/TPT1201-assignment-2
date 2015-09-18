@@ -1,0 +1,73 @@
+\documentclass[12pt]{article}
+\title{Video Base Face Recognition}
+\usepackage{times}
+\usepackage[top=3cm, bottom=3cm, left=3cm, right=3cm]{geometry}
+
+\author{Chong Ching Thow}
+\date{}
+\begin{document}
+
+\maketitle
+
+
+\tableofcontents
+\clearpage
+
+\section{Executive Summary}
+At field of video based face recognition, always facing the challenge issues in uncontrollable conditions, which is illumination, motion blur, focus change over the sequence and head pose. In other of that, the poor quality images or low resolution video record will reduce the performance of face recognition. And majority of current face recognition techniques are not able to giving a best solution to handling all of the issues at above. To achieve a higher accuracy, and solving the issues that listed out, researchers propose a high efficiency image quality assessment algorithm and a 3D average technique. The quality assessment will measure the face image to become a probabilistic face, the algorithm also included the solution of sharpness, cast shadows, geometric alignment and head pose. In addition, the average technique can remove the recognition’s misleading information, and morph it back to original face, become a re-established face. Those proposed methods can lead the image become clearer, handling undetectable angle and improve the accuracy of face recognition performance. In this article’s experiments report show that proposed methods are able to recognize the images under different conditions and also offered a much better face recognition algorithm than currently face selection techniques. Increase the recognition accuracy and reduce the overall of computation load. 
+
+\section{Introduction}
+Video-based face recognition is challenging because of variety of factors, such as subjects’ angle, subjects’ motion, and low quality of the video recordings. Those phenomena are the main factors to led face recognition results getting low resolution, large pose variations, low contrast, and blurry images. Although recent video-based face recognition algorithms had solved the issues of illumination and occlusion problem to increase the accuracy of face detection, but the accuracy are remain problematic.\vspace{3mm}\\ 
+To solve the poor quality images issues, the method is assumed that the images are outliers in a sequence. However, when majority of the images in sequence getting poor quality, the method will not work properly.  Besides that, it also having another method , that call explicit subset selection, in which a face quality evaluation is done automatically on each picture,  either it will automatically remove the poor quality face images, or it will select a subset comprised of high quality images. This improvement also brings some benefit, which is reducing the overall computation load. \vspace{3mm}\\ 
+Furthermore, this article also proposed a face quality assessment algorithm; it will calculate the image and output the single score.  The score is reflecting the image quality such as shadowing, image sharpness, pose variations and alignment errors.\vspace{3mm}\\ 
+In addition, this research also conduct an experiment using 3D face dataset to prove the face recognition system using the function called average-half-face is more accurate than using full face. The average technique on video-based face recognition had provided an efficient way to get the more accurate results, that is the system will morph the image return to the original shapes and generate a re-established faces. 
+
+
+\section{Justification of Research}
+The proposed method Face Quality Assessment can help human to get more accurate to recognize the human face in low resolution CCTV footage.  The issues that faced at last time are having a different  influence on the image of face quality and measured individually,  the system will difficulty to combine a high accurate face image, but now we can using the 3D average technique to re-establish the faces. Due to the face recognition are over dependent on the algorithms, training image and input features, and those methods were closely tied to the particular system configuration, so that have to retrained for every system. Face Quality Assessment and 3D average technique having a short, uncomplicated, and effective algorithm, this can reduce the overall computation load, let the face recognize process save more time.
+
+\section{Research Objectives}
+The objectives of this research are as follows:
+\begin{enumerate}
+  \item To achieve a higher accuracy in face recognize with a new algorithm, the previous algorithms’ average results were not high enough.
+  \item To develop an efficient face quality assessment method for recognize the blurring or low resolution quality images or videos recording.
+  \item To improve the recognition by using averaging technique, the average technique can extremely improve the performance of the recognition system and can predict the face images that at unrecognizable angle. Image average technique will create an average face image by merge the probe images to get a higher rate recognize.
+\end{enumerate}
+	
+
+
+\section{Literature Review}
+This research had two methods that proposed to solve with different type of issues that are not similar, those methods are Face Quality Assessment and 3D average technique. For giving a benchmarking result, this article has done some experiments that having particular image variation together with other methods.  In the experiment for Face Quality Assessment, the pixel based asymmetry analysis and two sharpness analyses, classical Distance from Face Space, asymmetry analysis with Gabor features will compare with Face Quality Assessment method. Although the methods at above accuracy were better than proposed method in field of stationary image, but when those methods facing on the video experiment, proposed method was prove that having a better effectiveness. Pair of classification techniques and pair of facial feature extraction algorithms had used to test the effectiveness of those methods that were chosen. The first combinations are Local Binary Patterns with Mutual Subspace Method, and the second combinations are Multi-Region Histograms with Mutual Subspace Method. Two of the combinations are used to test the methods’ accurate on humans’ features.  The experiment were carried out according to dataset, and inside the dataset having a different set of face images that showing the different quality score also, the quality score higher the quality higher.\vspace{3mm}\\ 
+In first experiment results, which is Local Binary Patterns with Mutual Subspace Method experiment, the face recognize performance of proposed method Face Quality Assessment is better for comparing with other 3 methods, Face Quality Assessment can be more accurate to allocate high scores to high quality images.\vspace{3mm}\\ 
+In second experiment, the images size were varied from 1x1 pixel to the size of the set, which is 2, 4, 8, 16, 32, 64 and maximum 128. As the experiment results showing, the images varied to maximum size, all those methods didn’t give the best performance. However, from the 1 to 32 times magnification, the proposed method is much better than the other 3 methods, this proven it had achieved the high verification accuracy.\vspace{3mm}\\ 
+The experiment for second proposed method, which is 3D average technique, researchers were randomly select original humans’ images from data set to test the performance of the proposed method. In the results of the experiment, researchers used the re-established faces that created by 3D average technique compared with the original faces, the re-established faces had some variety on occlusions and illumination part. After that, researchers used the face recognition algorithm to recognize the intrinsic structure of the re-established and original face images, and data shown that re-established faces were cluster together with the owners’ face more than original face images.
+
+
+\section{Research Methodology}
+The proposed method, Face Quality Assessment is consist of five parts, that is pixel-based image normalization, patch extraction with normalization, patch of feature extraction , local probability calculation and the overall quality score generation.\vspace{3mm}\\
+For the part of pixel-based image normalization, it is a calculation on the images’ pixel for reduces the intensity of light or color differences between the images’ skin tones. The process of algorithm is assume the image as I, and for reduce data’s dynamic range, researchers using non-linear preprocessing together, so that it’s $I_{log}$,  and the formula as below:
+\[I_{log(r,c)}=ln[I(r,c)+1]\]
+$I(r,c)$represent as the pixel intensity.\vspace{3mm}\\
+For the second part, patch extraction with normalization. This step will taking the first step’s result that is $I_{log(r,c)}$ and divide it into few patches, and it also called overlapping blocks, and every block having $n \times\ n$ pixels and the patch will be normalized to unit variance and zero mean.\vspace{3mm}\\
+Third part is patch of feature extraction, every block will get extract to 2D Discrete Cosine Transform feature vector and the 0-th Discrete Cosine Transform  will be exclude , leaving the top of low frequency components with  ordinary facial textures.\vspace{3mm}\\
+The fourth part, using the calculation of location specific probabilistic model as below:
+\[p(x_{i}| \mu_{i},\sum \nolimits_{i})= \frac{exp[-\frac{1}{2}(x_{i}-\mu_{i})^T\sum\nolimits_{i}^{-1}(x_{i}-\mu_{i})]}{(2\pi)^{\frac{d}{2}}|\sum\nolimits_{i}|^{\frac{1}{2}}}\]
+Assume that$ i$ as block location,$ x_{i}$ as probability of the relevant feature vector, T as number of adjacent blocks. Which$\sum\nolimits_{i}$ and $\mu_{i}$ are represent as normal distribution’s covariance matrix and average and the d is number of low frequency components. This formula is for adjust neutral expression and frontal illumination at every face location in frontal face.\vspace{3mm}\\
+Fifth, is every location’s model represent as independent and using the result of part 4 and substitute it into the formula at below:
+\[Q(I)=\sum\nolimits^{N}_{i=1}log\space\ p(x_{i}|\mu_{i},\sum\nolimits_{i})\]
+This algorithm result is the quality score, if getting a higher quality score, it’s mean will getting a better image quality, so that this algorithm can solve the problem of blurring quality image or low resolution videos and align all of that become clear.\vspace{3mm}\\
+The second proposed method, 3D average technique, it function as build an average face image , remove the occlusion or misleading shadows at an image and retain the face prominent feature at the image. After that, the average face image will get morph and back to the subject’s original shapes, a re-established face image will be created, and the re-established subject is similar to the target original subject.\vspace{3mm}\\
+The 3D average technique is including 5 steps process, starting it will test the frames of image, and doing segmentation on the image and track the important part of images. After the tracking and segmentation step, it will do recognition and test the average of face images. The average face will use for step of feature extraction and step of classification.
+
+\section{References}
+\begin{enumerate}
+\item H. Bae \& S. Ki, Real-time face detection and recognition using hybrid-information extracted from face space and facial features, Image and Vision Computing, 2005.
+\item E. A. R´ua, J. L. A. Castro, and C. G. Mateo, Quality-based score normalization and frame selection for video-based person
+authentication. In BIOID, Lecture Notes in Computer Science (LNCS), 2008.
+\item J. Sang, Z. Lei, and S. Z. Li, Face image quality evaluation for ISO/IEC standards 19794-5 and 29794-5. In ICB, Lecture
+Notes in Computer Science (LNCS), volume 5558, 2009.
+\item Y.K Wong, S.K Chen, S. Mau, C. Sanderson, C.L Brian ,Patch-based Probabilistic Image Quality Assessment for Face Selection and Improved Video-Based Face Recognition , In ITEE, 2012
+\item P. Jia, D. Hu , Video- Based Face Recognition Using Image Averaging Technique, 2012
+\end{enumerate}
+
+\end{document}
